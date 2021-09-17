@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+    <package name="a" extends="struts-default">
+        
+        <action name="login" class ="action.Login">
+            <result name = "input">/login.jsp</result>
+            <result name="success">/homepage.jsp</result>
+            <result name="failure">/failure.jsp</result>
+        </action>
+        
+        <action name="signup" class ="action.SignUp">
+         <result name = "input">/signup.jsp</result>
+         <result name="success">/signup_success.jsp</result>
+        </action>
+        
+        
+        <action name="eventcollection" class ="ransomdetection.RansomDetection" method="collectEvents">
+            <interceptor-ref name="execAndWait"></interceptor-ref>
+            <result name = "input">/homepage.jsp</result>
+            <result name="wait">/waitingpage.jsp</result>
+        </action>
+        
+        
+         <action name="ransomreport" class ="ransomdetection.RansomReport">
+            <result name = "report">/report.jsp</result>
+        </action>
+    </package>
+</struts>
